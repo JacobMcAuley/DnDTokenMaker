@@ -1,9 +1,10 @@
 import cv2
 import sys
 import image_processing
-
+import webCrawler
 
 # Get user supplied values
+
 imagePath = sys.argv[1]
 cascPath = "haarcascade_frontalface_default.xml"
 
@@ -27,10 +28,8 @@ print("Found {0} faces!".format(len(faces)))
 # Draw a rectangle around the faces
 for (x, y, w, h) in faces:
     print(x, y, w, h)
-    image_processing.crop_image(x,y, h, w, sys.argv[1])
-    cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-
-
+    image_processing.crop_image(x, y, h, w, sys.argv[1])
+    cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 cv2.imshow("Faces found", image)
 cv2.waitKey(0)
