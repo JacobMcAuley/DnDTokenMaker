@@ -22,7 +22,8 @@ def crop_image(x, y, x2, y2, image):
     npImage = np.dstack((npImage, npAlpha))
 
     # Save with alpha\
-    Image.fromarray(npImage).save('result.png')
+    Image.fromarray(npImage).save('images/result.png')
 
-    img2 = Image.open('result.png')
-    img2.crop([x - OFFSET, y - OFFSET, (x + x2) + OFFSET2, (y + y2) + OFFSET2]).save('token.png')
+    img2 = Image.open('images/result.png')
+    name = '%s_token.png' % image
+    img2.crop([x - OFFSET, y - OFFSET, (x + x2) + OFFSET2, (y + y2) + OFFSET2]).save(name)
